@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTE小肠造影：2小时“满水”攻略</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #f0f4f8;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #334155;
+        }
+        .step-card {
+            transition: transform 0.2s ease;
+        }
+        .step-card:hover {
+            transform: translateY(-2px);
+        }
+        .progress-line {
+            position: absolute;
+            left: 24px;
+            top: 40px;
+            bottom: 0;
+            width: 2px;
+            background: #cbd5e1;
+            z-index: 0;
+        }
+        .step-node {
+            position: relative;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="max-w-md mx-auto bg-white min-h-screen pb-10">
+    <!-- Header -->
+    <div class="bg-blue-600 text-white p-6 rounded-b-3xl shadow-lg text-center">
+        <div class="mb-2 opacity-80"><i class="fas fa-notes-medical text-2xl"></i></div>
+        <h1 class="text-2xl font-bold tracking-wide">CTE小肠造影</h1>
+        <p class="text-blue-100 mt-1">2小时“满水”全攻略</p>
+    </div>
+
+    <!-- Intro Card -->
+    <div class="m-4 p-4 bg-blue-50 border-l-4 border-blue-400 rounded-r-lg shadow-sm">
+        <div class="flex items-center gap-2 mb-2 font-bold text-blue-800">
+            <i class="fas fa-flask"></i>
+            <span>准备物资</span>
+        </div>
+        <p class="text-sm text-blue-700 leading-relaxed">
+            药水：<span class="font-semibold underline">2.5%改良甘露醇（共2000ml）</span><br>
+            原则：<span class="font-semibold">定时、定量、配合体位</span>
+        </p>
+    </div>
+
+    <!-- Timeline Container -->
+    <div class="relative px-4 mt-6">
+        <div class="progress-line"></div>
+
+        <!-- Step 1 -->
+        <div class="step-node flex gap-4 mb-8">
+            <div class="flex-none w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold shadow-md">1</div>
+            <div class="step-card flex-grow bg-white border border-slate-100 p-4 rounded-xl shadow-sm">
+                <div class="text-blue-600 font-bold mb-1">0 - 30 分钟</div>
+                <div class="flex items-center gap-2 text-sm font-semibold mb-2">
+                    <i class="fas fa-tint text-blue-400"></i> 匀速喝完 500ml
+                </div>
+                <div class="bg-slate-50 p-2 rounded text-sm text-slate-600 mb-2">
+                    <i class="fas fa-bed text-blue-500 mr-1"></i> <strong>姿势：</strong>右侧卧位（侧躺）
+                </div>
+                <p class="text-xs text-slate-400">目的：让药水借助重力，快速填满小肠末端。</p>
+            </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-node flex gap-4 mb-8">
+            <div class="flex-none w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold shadow-md">2</div>
+            <div class="step-card flex-grow bg-white border border-slate-100 p-4 rounded-xl shadow-sm">
+                <div class="text-blue-500 font-bold mb-1">30 - 60 分钟</div>
+                <div class="flex items-center gap-2 text-sm font-semibold mb-2">
+                    <i class="fas fa-tint text-blue-400"></i> 匀速喝完 500ml
+                </div>
+                <div class="bg-slate-50 p-2 rounded text-sm text-slate-600 mb-2">
+                    <i class="fas fa-bed text-blue-500 mr-1 scale-x-[-1]"></i> <strong>姿势：</strong>左侧卧位（侧躺）
+                </div>
+                <p class="text-xs text-slate-400">目的：确保小肠中段也得到充分扩张。</p>
+            </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-node flex gap-4 mb-8">
+            <div class="flex-none w-12 h-12 bg-blue-400 text-white rounded-full flex items-center justify-center font-bold shadow-md">3</div>
+            <div class="step-card flex-grow bg-white border border-slate-100 p-4 rounded-xl shadow-sm">
+                <div class="text-blue-400 font-bold mb-1">60 - 90 分钟</div>
+                <div class="flex items-center gap-2 text-sm font-semibold mb-2">
+                    <i class="fas fa-tint text-blue-300"></i> 匀速喝完 500ml
+                </div>
+                <div class="bg-slate-50 p-2 rounded text-sm text-slate-600 mb-2">
+                    <i class="fas fa-walking text-blue-500 mr-1"></i> <strong>姿势：</strong>室内散步
+                </div>
+                <p class="text-xs text-slate-400">目的：靠活动激活肠蠕动，让药水分布更均匀。</p>
+            </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step-node flex gap-4 mb-8">
+            <div class="flex-none w-12 h-12 bg-teal-500 text-white rounded-full flex items-center justify-center font-bold shadow-md">4</div>
+            <div class="step-card flex-grow bg-white border border-slate-100 p-4 rounded-xl shadow-sm">
+                <div class="text-teal-600 font-bold mb-1">90 - 120 分钟</div>
+                <div class="flex items-center gap-2 text-sm font-semibold mb-2">
+                    <i class="fas fa-glass-water text-teal-400"></i> 喝完最后 500ml
+                </div>
+                <div class="bg-orange-50 border border-orange-100 p-2 rounded text-xs text-orange-600 mb-2 font-medium">
+                    <i class="fas fa-exclamation-circle mr-1"></i> 注意：如护士要求请服用“动力药”。
+                </div>
+                <p class="text-xs text-slate-400">目的：填满胃和十二指肠，迎接检查。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Warnings -->
+    <div class="mx-4 p-5 bg-amber-50 rounded-2xl border border-amber-100 shadow-sm">
+        <h3 class="text-amber-800 font-bold flex items-center gap-2 mb-3">
+            <i class="fas fa-lightbulb"></i> 温馨提醒
+        </h3>
+        <ul class="space-y-3 text-sm text-amber-900 opacity-90">
+            <li class="flex gap-2">
+                <span class="text-amber-500">•</span>
+                <span><strong>别太快：</strong> 像品茶一样小口喝，防止呕吐。</span>
+            </li>
+            <li class="flex gap-2">
+                <span class="text-amber-500">•</span>
+                <span><strong>别憋尿：</strong> 感到尿意可正常排尿，不要忍着。</span>
+            </li>
+            <li class="flex gap-2">
+                <span class="text-amber-500">•</span>
+                <span><strong>勤憋气：</strong> 检查时听指令，憋气要稳，图像才准。</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Post Check -->
+    <div class="mx-4 mt-6 flex gap-4">
+        <div class="flex-1 bg-slate-800 text-white p-4 rounded-2xl shadow-md">
+            <div class="text-xs opacity-60 uppercase mb-1">检查后留观</div>
+            <div class="text-lg font-bold">30 分钟</div>
+        </div>
+        <div class="flex-1 bg-green-600 text-white p-4 rounded-2xl shadow-md">
+            <div class="text-xs opacity-60 uppercase mb-1">多喝温水</div>
+            <div class="text-lg font-bold">24 小时</div>
+        </div>
+    </div>
+
+    <footer class="mt-8 text-center text-slate-400 text-xs">
+        <p>© 影像科室 CTE检查指引服务</p>
+    </footer>
+</body>
+</html>

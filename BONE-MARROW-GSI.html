@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GE Revolution CT 能谱成像临床路径</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #05070a;
+            color: #d1d5db;
+        }
+
+        .gsi-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border: 1px solid #334155;
+        }
+
+        .tech-badge {
+            font-family: 'Orbitron', sans-serif;
+            background: rgba(56, 189, 248, 0.1);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            font-size: 0.65rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .flow-card {
+            background: #0f172a;
+            border-left: 4px solid #1e40af;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .flow-card:hover {
+            transform: translateX(10px);
+            background: #1e293b;
+            border-left-color: #38bdf8;
+        }
+
+        .spectral-visual {
+            background: radial-gradient(circle at center, #1e3a8a 0%, #020617 100%);
+            border: 1px solid #1e40af;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .kv-toggle {
+            position: absolute;
+            font-size: 10px;
+            font-weight: bold;
+            opacity: 0.6;
+        }
+
+        .arrow-down {
+            width: 2px;
+            height: 30px;
+            background: linear-gradient(to bottom, #38bdf8, transparent);
+            margin-left: 50px;
+        }
+    </style>
+</head>
+<body class="p-6">
+
+<div class="max-w-4xl mx-auto">
+    <!-- Header -->
+    <header class="flex justify-between items-center mb-10 border-b border-slate-800 pb-6">
+        <div>
+            <div class="flex items-center gap-2 mb-1">
+                <span class="tech-badge">GE Revolution CT</span>
+                <span class="tech-badge text-amber-400 border-amber-400/30">GSI Peak</span>
+            </div>
+            <h1 class="text-3xl font-bold text-white tracking-tight">能谱 CT 骨髓成像标准作业程序 (SOP)</h1>
+            <p class="text-slate-400 text-sm mt-2">基于瞬时高低压切换技术 (80kV/140kV) 的急性骨折诊断路径</p>
+        </div>
+        <div class="hidden md:block text-right">
+            <div class="text-xs font-mono text-slate-500 uppercase">Protocol Code: SPECTRAL-BONE-VNCa</div>
+            <div class="text-2xl font-bold text-blue-500 mt-1 italic">GSI Flow</div>
+        </div>
+    </header>
+
+    <!-- Phase 1: Data Acquisition -->
+    <section class="mb-8">
+        <div class="flex items-center gap-4 mb-4">
+            <div class="h-8 w-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">1</div>
+            <h2 class="text-xl font-semibold text-white">原始数据获取 (Acquisition)</h2>
+        </div>
+        <div class="gsi-gradient rounded-xl p-6 relative overflow-hidden">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                <div>
+                    <h3 class="text-blue-400 font-bold mb-2">瞬时高低压切换技术</h3>
+                    <p class="text-sm text-slate-300">通过单管球在 0.2ms 内实现 80kV 与 140kV 的快速切换，通过能谱原始数据空间匹配，消除运动伪影。</p>
+                </div>
+                <div class="spectral-visual rounded-lg">
+                    <div class="kv-toggle left-4 top-2 text-blue-300">80kV (Low)</div>
+                    <div class="kv-toggle right-4 bottom-2 text-amber-300">140kV (High)</div>
+                    <div class="w-full h-[1px] bg-blue-500/30 animate-pulse"></div>
+                    <span class="text-[10px] uppercase tracking-widest text-white/50">Spectral Raw Data</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 2: Processing -->
+    <section class="mb-8">
+        <div class="flex items-center gap-4 mb-4">
+            <div class="h-8 w-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">2</div>
+            <h2 class="text-xl font-semibold text-white">能谱后处理 (GSI Reconstruction)</h2>
+        </div>
+        
+        <div class="space-y-4">
+            <!-- Step 2.1 -->
+            <div class="flow-card p-5 rounded-lg">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h4 class="font-bold text-blue-300">基物质分解 (Material Decomposition)</h4>
+                        <p class="text-sm text-slate-400 mt-1">利用衰减差异将组织分解。核心基对：<span class="text-white">水(Water) - 钙(Calcium)</span>。</p>
+                    </div>
+                    <span class="text-[10px] font-mono text-slate-600">MD Analysis</span>
+                </div>
+            </div>
+
+            <!-- Step 2.2 -->
+            <div class="flow-card p-5 rounded-lg">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h4 class="font-bold text-blue-300">虚拟去钙技术 (VNCa)</h4>
+                        <p class="text-sm text-slate-400 mt-1">自动扣除骨矿物质成分，消除皮质骨及小梁骨高密度干扰，显露骨髓腔环境。</p>
+                    </div>
+                    <span class="text-[10px] font-mono text-slate-600">Virtual Non-Ca</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 3: Clinical Conclusion -->
+    <section class="mb-12">
+        <div class="flex items-center gap-4 mb-4">
+            <div class="h-8 w-8 rounded-full bg-emerald-600 flex items-center justify-center text-white font-bold">3</div>
+            <h2 class="text-xl font-semibold text-white">临床评估与诊断 (Diagnostics)</h2>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="border border-slate-800 bg-slate-900/50 p-6 rounded-xl">
+                <div class="flex items-center gap-2 mb-3">
+                    <div class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                    <h4 class="text-lg font-bold text-white">急性/超急性骨折</h4>
+                </div>
+                <ul class="text-sm space-y-3 text-slate-300">
+                    <li class="flex items-start gap-2">
+                        <span class="text-red-500">●</span>
+                        <span>受累椎体含水量增加 (水肿)</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-red-500">●</span>
+                        <span class="font-semibold text-white">VNCa 表现：高信号 (CT值显著升高)</span>
+                    </li>
+                    <li class="p-2 bg-red-900/20 border border-red-900/50 rounded text-xs text-red-300">
+                        注：对应 MRI STIR 序列高信号改变
+                    </li>
+                </ul>
+            </div>
+
+            <div class="border border-slate-800 bg-slate-900/50 p-6 rounded-xl">
+                <div class="flex items-center gap-2 mb-3">
+                    <div class="w-3 h-3 bg-slate-500 rounded-full"></div>
+                    <h4 class="text-lg font-bold text-white">陈旧性骨折</h4>
+                </div>
+                <ul class="text-sm space-y-3 text-slate-300">
+                    <li class="flex items-start gap-2">
+                        <span class="text-slate-500">●</span>
+                        <span>骨髓水分含量正常</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-slate-500">●</span>
+                        <span class="font-semibold text-white">VNCa 表现：等/低信号 (无强化)</span>
+                    </li>
+                    <li class="p-2 bg-slate-800/50 border border-slate-700 rounded text-xs text-slate-500">
+                        提示骨折已愈合，无活动性损伤
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workstation Reference -->
+    <div class="border-t border-slate-800 pt-6 flex flex-wrap justify-center gap-6">
+        <div class="flex items-center gap-2">
+            <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+            <span class="text-[10px] text-slate-500 uppercase">Imaging Subtraction</span>
+        </div>
+        <div class="flex items-center gap-2">
+            <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+            <span class="text-[10px] text-slate-500 uppercase">GSI Viewer 2.0</span>
+        </div>
+        <div class="flex items-center gap-2">
+            <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+            <span class="text-[10px] text-slate-500 uppercase">Auto-Recon Engine</span>
+        </div>
+    </div>
+
+    <footer class="mt-8 text-center">
+        <p class="text-[10px] text-slate-600 tracking-widest uppercase">© Radiology Precision Medicine | Energy Spectrum Imaging Protocol</p>
+    </footer>
+</div>
+
+</body>
+</html>

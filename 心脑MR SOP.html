@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRI 临床路径标准作业程序 (SOP)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Inter', 'system-ui', 'Microsoft YaHei', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+
+        .workflow-container {
+            max-width: 850px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .sop-step {
+            position: relative;
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.25rem;
+            opacity: 0;
+            transform: translateX(-10px);
+            animation: fadeInRight 0.5s forwards;
+        }
+
+        @keyframes fadeInRight {
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .step-indicator {
+            flex: 0 0 100px;
+            text-align: right;
+            padding-top: 1rem;
+            font-size: 0.7rem;
+            color: #94a3b8;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .step-content {
+            flex: 1;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-left: 5px solid #cbd5e1;
+            padding: 1rem 1.5rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .sop-step:hover .step-content {
+            border-left-color: #2563eb;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: scale(1.01);
+        }
+
+        .sequence-tag {
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            color: #475569;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-right: 6px;
+            margin-bottom: 6px;
+            display: inline-block;
+        }
+
+        .injection-marker {
+            display: flex;
+            align-items: center;
+            margin: 1.5rem 0 1.5rem 115px;
+            color: #e11d48;
+            font-weight: 700;
+            font-size: 0.85rem;
+            background: #fff1f2;
+            border-left: 3px solid #e11d48;
+            padding: 0.75rem 1.25rem;
+            border-radius: 4px;
+        }
+
+        .optional {
+            color: #64748b;
+            font-size: 0.75rem;
+            background: #f8fafc;
+            padding: 1px 5px;
+            border-radius: 3px;
+            margin-left: 4px;
+        }
+
+        .header-accent {
+            background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+            height: 4px;
+            width: 100%;
+        }
+
+        .badge-clinical {
+            background-color: #dbeafe;
+            color: #1e40af;
+            border: 1px solid #bfdbfe;
+        }
+
+        @media print {
+            body { background: white; }
+            .sop-step { animation: none; opacity: 1; transform: none; }
+            .workflow-container { margin: 0; max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header-accent"></div>
+<header class="bg-white border-b border-slate-200 py-6 px-8 shadow-sm">
+    <div class="max-w-4xl mx-auto flex justify-between items-center">
+        <div>
+            <h1 class="text-2xl font-bold text-slate-900 tracking-tight">MRI 心脑同扫标准作业程序 (SOP)</h1>
+            <div class="flex items-center gap-3 mt-1">
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Clinical Protocol v2.1</span>
+                <span class="h-1 w-1 bg-slate-300 rounded-full"></span>
+                <span class="text-xs text-slate-500 font-medium">浅色阅读/打印模式</span>
+            </div>
+        </div>
+        <div class="hidden sm:block">
+            <span class="px-3 py-1 rounded text-xs font-bold badge-clinical">放射科规范化流程</span>
+        </div>
+    </div>
+</header>
+
+<main class="workflow-container mt-8">
+
+    <!-- Phase 01 -->
+    <div class="sop-step" style="animation-delay: 0.05s">
+        <div class="step-indicator">STAGE 01</div>
+        <div class="step-content">
+            <div class="flex justify-between items-start mb-2">
+                <h3 class="font-bold text-slate-800">头颅平扫</h3>
+                <span class="text-[10px] text-slate-400 font-mono">BRAIN PRE-SCAN</span>
+            </div>
+            <div class="flex flex-wrap mt-2">
+                <span class="sequence-tag">定位像</span>
+                <span class="sequence-tag">T1-FLAIR</span>
+                <span class="sequence-tag">T2WI</span>
+                <span class="sequence-tag">T2-FLAIR</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phase 02 -->
+    <div class="sop-step" style="animation-delay: 0.1s">
+        <div class="step-indicator">STAGE 02</div>
+        <div class="step-content">
+            <div class="flex justify-between items-start mb-2">
+                <h3 class="font-bold text-slate-800">脑功能成像</h3>
+                <span class="text-[10px] text-slate-400 font-mono">FUNCTIONAL</span>
+            </div>
+            <div class="flex flex-wrap mt-2">
+                <span class="sequence-tag">DWI</span>
+                <span class="sequence-tag">3D ASL <span class="optional">可选</span></span>
+                <span class="sequence-tag">SWI <span class="optional">可选</span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phase 03 -->
+    <div class="sop-step" style="animation-delay: 0.15s">
+        <div class="step-indicator">STAGE 03</div>
+        <div class="step-content">
+            <div class="flex justify-between items-start mb-2">
+                <h3 class="font-bold text-slate-800">头颈血管壁平扫</h3>
+                <span class="text-[10px] text-slate-400 font-mono">VESSEL WALL</span>
+            </div>
+            <div class="flex flex-wrap mt-2">
+                <span class="sequence-tag">3D FSE T1</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phase 04 -->
+    <div class="sop-step" style="animation-delay: 0.2s">
+        <div class="step-indicator">STAGE 04</div>
+        <div class="step-content">
+            <div class="flex justify-between items-start mb-2">
+                <h3 class="font-bold text-slate-800">心脏功能成像</h3>
+                <span class="text-[10px] text-slate-400 font-mono">CARDIAC FUNCTION</span>
+            </div>
+            <div class="flex flex-wrap mt-2">
+                <span class="sequence-tag">定位像</span>
+                <span class="sequence-tag">bSSFP Cine</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phase 05 -->
+    <div class="sop-step" style="animation-delay: 0.25s">
+        <div class="step-indicator">STAGE 05</div>
+        <div class="step-content">
+            <div class="flex justify-between items-start mb-2">
+                <h3 class="font-bold text-slate-800">心肌定量成像 <span class="text-sm font-normal text-slate-400">(可选)</span></h3>
+                <span class="text-[10px] text-slate-400 font-mono">QUANTITATIVE</span>
+            </div>
+            <div class="flex flex-wrap mt-2">
+                <span class="sequence-tag">Native T1 mapping</span>
+                <span class="sequence-tag">T2 mapping</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Injection Point 1 -->
+    <div class="injection-marker">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+        </svg>
+        <span>注射对比剂 01：心肌首过灌注起始</span>
+    </div>
+
+    <!-- Phase 06 -->
+    <div class="sop-step" style="animation-delay: 0.3s">
+        <div class="step-indicator">STAGE 06</div>
+        <div class="step-content" style="border-left-color: #fb7185;">
+            <div class="flex justify-between items-start mb-2">
+                <h3 class="font-bold text-slate-800">心肌首过灌注</h3>
+                <span class="text-[10px] text-rose-500 font-mono">PERFUSION</span>
+            </div>
+            <div class="flex flex-wrap mt-2">
+                <span class="sequence-tag text-rose-600 border-rose-100 bg-rose-50">Perfusion + 增强扫描</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Injection Point 2 -->
+    <div class="injection-marker">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+        <span>追加对比剂：头颈血管壁/延迟增强</span>
+    </div>
+
+    <!-- Phase 07 -->
+    <div class="sop-step" style="animation-delay: 0.35s">
+        <div class="step-indicator">STAGE 07</div>
+        <div class="step-content">
+            <div class="flex justify-between items-start mb-2">
+                <h3 class="font-bold text-slate-800">头颈血管壁增强</h3>
+                <span class="text-[10px] text-slate-400 font-mono">CE-VW MRI</span>
+            </div>
+            <div class="flex flex-wrap mt-2">
+                <span class="sequence-tag">3D FSE T1 + 增强</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phase 08 -->
+    <div class="sop-step" style="animation-delay: 0.4s">
+        <div class="step-indicator">STAGE 08</div>
+        <div class="step-content">
+            <div class="flex justify-between items-start mb-2">
+                <h3 class="font-bold text-slate-800">心肌延迟强化</h3>
+                <span class="text-[10px] text-slate-400 font-mono">LGE IMAGING</span>
+            </div>
+            <div class="flex flex-wrap mt-2">
+                <span class="sequence-tag">PS LGE (相位敏感反转恢复)</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phase 09 -->
+    <div class="sop-step" style="animation-delay: 0.45s">
+        <div class="step-indicator">STAGE 09</div>
+        <div class="step-content">
+            <div class="flex justify-between items-start mb-2">
+                <h3 class="font-bold text-slate-800">增强后心肌定量成像 <span class="optional">可选</span></h3>
+                <span class="text-[10px] text-slate-400 font-mono">POST-CONTRAST</span>
+            </div>
+            <div class="flex flex-wrap mt-2">
+                <span class="sequence-tag">Post T1 mapping</span>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<footer class="mt-16 mb-12 border-t border-slate-200 pt-8 text-center">
+    <div class="max-w-xs mx-auto flex justify-around opacity-40 mb-4">
+        <div class="h-8 w-8 bg-slate-400 rounded-full"></div>
+        <div class="h-8 w-8 bg-slate-400 rounded-full"></div>
+        <div class="h-8 w-8 bg-slate-400 rounded-full"></div>
+    </div>
+    <p class="text-slate-400 text-[10px] uppercase tracking-tighter">
+        Internal Use Only • Radiology Department Protocol • Confidential
+    </p>
+</footer>
+
+</body>
+</html>
